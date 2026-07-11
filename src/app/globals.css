@@ -1,26 +1,373 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Sidak Dark (default) — bright neon accents on deep charcoal
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #131313;
+  --editor: #1a1a1a;
+  --sidebar: #161616;
+  --activity-bar: #101010;
+  --surface: #222222;
+  --surface-hover: #2c2c2c;
+  --border: #2f2f2f;
+  --text-primary: #f4f4f4;
+  --text-secondary: #b0b0b0;
+  --text-muted: #7a7a7a;
+  --accent-blue: #3b9eff;
+  --accent-primary: #22d3ee;
+  --accent-secondary: #a78bfa;
+  --accent-pink: #f472b6;
+  --accent-yellow: #fbbf24;
+  --accent-green: #4ade80;
+  --status-bar: #0a7fd4;
+  --status-bar-text: #ffffff;
+  --success: #4ade80;
+  --string: #ff8a65;
+  --keyword: #569cd6;
+  --comment: #6a9955;
+  --warning: #fbbf24;
+  --number: #b5cea8;
+  --selection: #264f78;
+  --scrollbar: #424242;
+}
+
+[data-theme="light"] {
+  --background: #f3f3f3;
+  --editor: #ffffff;
+  --sidebar: #f3f3f3;
+  --activity-bar: #e8e8e8;
+  --surface: #ececec;
+  --surface-hover: #e0e0e0;
+  --border: #d4d4d4;
+  --text-primary: #1f1f1f;
+  --text-secondary: #4b4b4b;
+  --text-muted: #8a8a8a;
+  --accent-blue: #005fb8;
+  --accent-primary: #0891b2;
+  --accent-secondary: #7c3aed;
+  --accent-pink: #db2777;
+  --accent-yellow: #b45309;
+  --accent-green: #15803d;
+  --status-bar: #005fb8;
+  --status-bar-text: #ffffff;
+  --success: #098658;
+  --string: #a31515;
+  --keyword: #0000ff;
+  --comment: #008000;
+  --warning: #b58900;
+  --number: #098658;
+  --selection: #add6ff;
+  --scrollbar: #bdbdbd;
+}
+
+[data-theme="rose-pine"] {
+  --background: #191724;
+  --editor: #1f1d2e;
+  --sidebar: #191724;
+  --activity-bar: #14121f;
+  --surface: #26233a;
+  --surface-hover: #2f2b45;
+  --border: #363252;
+  --text-primary: #e0def4;
+  --text-secondary: #908caa;
+  --text-muted: #6e6a86;
+  --accent-blue: #31748f;
+  --accent-primary: #9ccfd8;
+  --accent-secondary: #c4a7e7;
+  --accent-pink: #eb6f92;
+  --accent-yellow: #f6c177;
+  --accent-green: #a6da95;
+  --status-bar: #26233a;
+  --status-bar-text: #e0def4;
+  --success: #9ccfd8;
+  --string: #f6c177;
+  --keyword: #31748f;
+  --comment: #6e6a86;
+  --warning: #f6c177;
+  --number: #ebbcba;
+  --selection: #403d52;
+  --scrollbar: #45415e;
+}
+
+[data-theme="tokyo-night"] {
+  --background: #16161e;
+  --editor: #1a1b26;
+  --sidebar: #16161e;
+  --activity-bar: #13131a;
+  --surface: #24283b;
+  --surface-hover: #2c3047;
+  --border: #2f334d;
+  --text-primary: #c0caf5;
+  --text-secondary: #9aa5ce;
+  --text-muted: #565f89;
+  --accent-blue: #7aa2f7;
+  --accent-primary: #7dcfff;
+  --accent-secondary: #bb9af7;
+  --accent-pink: #f7768e;
+  --accent-yellow: #e0af68;
+  --accent-green: #9ece6a;
+  --status-bar: #7aa2f7;
+  --status-bar-text: #16161e;
+  --success: #9ece6a;
+  --string: #ff9e64;
+  --keyword: #7aa2f7;
+  --comment: #565f89;
+  --warning: #e0af68;
+  --number: #ff9e64;
+  --selection: #33467c;
+  --scrollbar: #3b4261;
+}
+
+[data-theme="catppuccin"] {
+  --background: #181825;
+  --editor: #1e1e2e;
+  --sidebar: #181825;
+  --activity-bar: #11111b;
+  --surface: #313244;
+  --surface-hover: #3b3c52;
+  --border: #45475a;
+  --text-primary: #cdd6f4;
+  --text-secondary: #a6adc8;
+  --text-muted: #6c7086;
+  --accent-blue: #89b4fa;
+  --accent-primary: #89dceb;
+  --accent-secondary: #cba6f7;
+  --accent-pink: #f5c2e7;
+  --accent-yellow: #f9e2af;
+  --accent-green: #a6e3a1;
+  --status-bar: #cba6f7;
+  --status-bar-text: #181825;
+  --success: #a6e3a1;
+  --string: #fab387;
+  --keyword: #89b4fa;
+  --comment: #6c7086;
+  --warning: #f9e2af;
+  --number: #fab387;
+  --selection: #45475a;
+  --scrollbar: #45475a;
+}
+
+[data-theme="nord"] {
+  --background: #272c36;
+  --editor: #2e3440;
+  --sidebar: #272c36;
+  --activity-bar: #22262f;
+  --surface: #3b4252;
+  --surface-hover: #434c5e;
+  --border: #434c5e;
+  --text-primary: #eceff4;
+  --text-secondary: #d8dee9;
+  --text-muted: #7b88a1;
+  --accent-blue: #81a1c1;
+  --accent-primary: #88c0d0;
+  --accent-secondary: #b48ead;
+  --accent-pink: #bf616a;
+  --accent-yellow: #ebcb8b;
+  --accent-green: #a3be8c;
+  --status-bar: #5e81ac;
+  --status-bar-text: #eceff4;
+  --success: #a3be8c;
+  --string: #d08770;
+  --keyword: #81a1c1;
+  --comment: #7b88a1;
+  --warning: #ebcb8b;
+  --number: #b48ead;
+  --selection: #434c5e;
+  --scrollbar: #4c566a;
+}
+
+[data-theme="gruvbox"] {
+  --background: #1d2021;
+  --editor: #282828;
+  --sidebar: #1d2021;
+  --activity-bar: #171a1b;
+  --surface: #3c3836;
+  --surface-hover: #504945;
+  --border: #504945;
+  --text-primary: #ebdbb2;
+  --text-secondary: #bdae93;
+  --text-muted: #928374;
+  --accent-blue: #83a598;
+  --accent-primary: #8ec07c;
+  --accent-secondary: #d3869b;
+  --accent-pink: #fb4934;
+  --accent-yellow: #fabd2f;
+  --accent-green: #b8bb26;
+  --status-bar: #fabd2f;
+  --status-bar-text: #1d2021;
+  --success: #b8bb26;
+  --string: #fe8019;
+  --keyword: #83a598;
+  --comment: #928374;
+  --warning: #fabd2f;
+  --number: #d3869b;
+  --selection: #504945;
+  --scrollbar: #665c54;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-editor: var(--editor);
+  --color-sidebar: var(--sidebar);
+  --color-activity: var(--activity-bar);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-text-1: var(--text-primary);
+  --color-text-2: var(--text-secondary);
+  --color-text-3: var(--text-muted);
+  --color-blue: var(--accent-blue);
+  --color-cyan: var(--accent-primary);
+  --color-violet: var(--accent-secondary);
+  --color-pink: var(--accent-pink);
+  --color-yellow: var(--accent-yellow);
+  --color-green: var(--accent-green);
+  --color-statusbar: var(--status-bar);
+  --color-statusbar-text: var(--status-bar-text);
+  --color-success: var(--success);
+  --color-string: var(--string);
+  --color-keyword: var(--keyword);
+  --color-comment: var(--comment);
+  --color-warning: var(--warning);
+  --color-number: var(--number);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Custom pixel cursor: hide the native cursor on precise pointers */
+@media (pointer: fine) {
+  html.sc-cursor,
+  html.sc-cursor * {
+    cursor: none !important;
+  }
+}
+
+/* The cursor itself: outlined square with a big white pixel in the middle */
+.sc-cursor-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-left: -11px;
+  margin-top: -11px;
+  border: 2px solid #ffffff;
+  background: transparent;
+  transition:
+    width 0.12s ease,
+    height 0.12s ease,
+    margin 0.12s ease,
+    border-color 0.12s ease;
+  mix-blend-mode: difference;
+}
+.sc-cursor-pixel {
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+}
+[data-hover="true"] .sc-cursor-box {
+  width: 30px;
+  height: 30px;
+  margin-left: -15px;
+  margin-top: -15px;
+}
+[data-down="true"] .sc-cursor-box {
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sc-cursor-box {
+    transition: none;
+  }
+}
+
+/* Slim VS Code-like scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::selection {
+  background: var(--selection);
+}
+
+/* Visible focus rings for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: -1px;
+}
+
+/* Blinking cursor used in hero / terminal */
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.cursor-blink {
+  animation: blink 1.06s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink {
+    animation: none;
+    opacity: 1;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Layered hero name treatment */
+.hero-name-top {
+  color: var(--text-primary);
+  text-shadow: 4px 4px 0 color-mix(in srgb, var(--accent-primary) 35%, transparent);
+  letter-spacing: -0.02em;
+}
+.hero-name-bottom {
+  background: linear-gradient(
+    90deg,
+    var(--accent-primary),
+    var(--accent-secondary) 55%,
+    var(--accent-pink)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
+  filter: drop-shadow(4px 4px 0 color-mix(in srgb, var(--accent-pink) 30%, transparent));
 }
